@@ -18,6 +18,8 @@ currentDate = datetime.datetime.now().date()
 
 values = {}
 
+valuesX = {}
+
 def toplevel1():
     toplevelform = tk.Toplevel(form)
     toplevelform.title('Wexis Biling System')
@@ -151,12 +153,20 @@ def toplevel1():
             areaLog.insert(tk.END,'\n* {} Cola Price: {}$'.format(cola.get(),colaPrice))
 
     def updateBill():
+        global profiles , profilesX
+        global logs , totalX
         Prices()
         priceLog()
+        total()
         logs = areaLog.get('6.0',tk.END)
         profiles = combobox1.get()
         values.update({
             profiles : logs
+        })
+        totalX = totalPrice
+        profilesX = combobox1.get()
+        valuesX.update({
+            profilesX : totalX
         })
 
     def resetM():
@@ -189,43 +199,18 @@ def toplevel1():
         americano.delete(0,tk.END)
         americano.insert(0, 0)
 
-
     def total():
-        colaT = float(cola.get())
-        colaT *= 2.5      
-        steakT = int(steak.get())
-        steakT *= 42
-        espressoT = float(espresso.get())
-        espressoT *= 3.5
-        saladT = float(salad.get())
-        saladT *= 8.5
-        americanoT = int(americano.get())
-        americanoT *= 3
-        pizzaT = int(pizza.get())
-        pizzaT *= 15
-        chipsT = float(chips.get())
-        chipsT *= 3.5
-        frozenT = int(frozen.get())
-        frozenT *= 5
-        mochaT = int(mocha.get())
-        mochaT *= 4
-        latteT = int(latte.get())
-        latteT *= 4
-        hamburgerT = int(hamburger.get())
-        hamburgerT *= 6
-        toastT = float(toast.get())
-        toastT *= 1.5
-        teaT = int(tea.get())
-        teaT *= 1
-        cheesecakeT = int(cheesecake.get())
-        cheesecakeT *= 9
-        areaLog.insert(tk.END,'\n\nTOTAL PRICE = {}$'.format(latteT+hamburgerT+toastT+teaT+cheesecakeT+mochaT+frozenT+chipsT+pizzaT+americanoT+saladT+espressoT+steakT+colaT))
+        global totalPrice
+        totalPrice = (colaPrice+steakPrice+espressoPrice+saladPrice+americanoPrice+lattePrice+hamburgerPrice+toastPrice
+                                                             +teaPrice+cheesecakePrice+mochaPrice+frozenPrice+chipsPrice+pizzaPrice)
+
+    def printTotal():
+        areaLog.insert(tk.END,'\n\nTOTAL PRICE = {}$'.format(valuesX[combobox1.get()]))
 
     def showBill():
         Prices()
         global selected_value
         selected_value = combobox1.get()
-
         try:
             if selected_value == 'name:  no: ':
                 areaLog.delete('1.0',tk.END)
@@ -388,8 +373,8 @@ def toplevel1():
     areaLog = tk.Text(toplevelform,wrap=tk.WORD,width=50,height=25)
     areaLog.place(x=874,y=200)
 
-    clean_bill_area = tk.Button(toplevelform,text='Total',font='sans 28 bold',bg='#6e6c66',command=total,fg='#37d643')
-    clean_bill_area.place(x=651,y=560)
+    total_area = tk.Button(toplevelform,text='Total',font='sans 28 bold',bg='#6e6c66',command=printTotal,fg='#37d643')
+    total_area.place(x=651,y=560)
 
     clear_bill_area = tk.Button(toplevelform,text='Reset Menu',font='sans 20 bold',bg='#ffa0a0',command=resetM)
     clear_bill_area.place(x=623,y=480)
@@ -447,8 +432,9 @@ def loginSystem():
             if nickname == nickname_entry.get() and password == password_entry.get():
                 check_label.config(text='Login Successful',fg='green')
                 check_label.place(x=208,y=200)
-                form.withdraw()
                 toplevel1()
+                form.withdraw()
+
             else:
                 check_label.config(text='Login Failed',fg='red')
                 check_label.place(x=225,y=200)
@@ -483,5 +469,6 @@ password_label.place(x=230,y=120)
 
 check_label = tk.Label(form,text='',font='sans 12 bold',fg='green',bg='#76e698')
 check_label.place(x=200,y=200)
+
 
 form.mainloop()
