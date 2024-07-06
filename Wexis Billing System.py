@@ -25,7 +25,6 @@ def toplevel1():
     toplevelform.title('Wexis Biling System')
     toplevelform.geometry('1300x650')
     toplevelform.configure(bg='#a4e8e5')
-    toplevelform.resizable(False,False)
 
 ####################### MAIN COMBO #######################
 
@@ -205,7 +204,10 @@ def toplevel1():
                                                              +teaPrice+cheesecakePrice+mochaPrice+frozenPrice+chipsPrice+pizzaPrice)
 
     def printTotal():
-        areaLog.insert(tk.END,'\n\nTOTAL PRICE = {}$'.format(valuesX[combobox1.get()]))
+        try:
+            areaLog.insert(tk.END,'\n\nTOTAL PRICE = {}$'.format(valuesX[combobox1.get()]))
+        except:
+            areaLog.insert(tk.END,'\n\nPlease choose order first')
 
     def showBill():
         Prices()
@@ -395,7 +397,6 @@ def toplevel1():
         currentTime = time.strftime('%H:%M:%S')
         timeL.config(text=f'Time: {currentTime}')
         timeL.after(1000,timer)
-
     timer()
 
 ################################################################# TOP LEVEL #################################################################
