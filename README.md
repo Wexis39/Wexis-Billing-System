@@ -1,4 +1,4 @@
-![pngtree-vector-illustration-important-label-png-image_6565348](https://github.com/Wexis39/Wexis-Billing-System/assets/147618606/9ed33721-8bb7-4eef-b361-8d6c83769ce6) 
+![important-1705212_1280](https://github.com/Wexis39/Wexis-Billing-System/assets/147618606/794b532c-97ac-49e0-ae68-6a3b7002ad45)
 
 - I wrote this system on Linux(Ubuntu), so some things (buttons, texts, etc.) appear in the wrong places for Windows users, so I made (form.resizable(width=True, height=True)), that is, you can enlarge the window as you wish, but the appearance may be a little bad. If you are using Linux it will work without any problems. It runs smoothly in the Windows environment, but some things may be slightly different or incorrect.
 
