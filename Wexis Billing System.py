@@ -247,7 +247,7 @@ def toplevel1():
     titlelabel = tk.Label(toplevelform,text='Wexis Billing System',bg='#3c4f4e',fg='#fc4424',font='sans 40 bold')
     titlelabel.pack(fill=tk.X)
 
-    customer_details = tk.Label(toplevelform,text='',bg='#836c68',font='sans 30')
+    customer_details = tk.Label(toplevelform,text='',bg='#836c68',font='sans 40')
     customer_details.pack(fill=tk.X)
 
 ###############################
@@ -366,7 +366,7 @@ def toplevel1():
     cola = tk.Spinbox(toplevelform,font='sans 10 bold',bg='white',from_=0,to=50)
     cola.place(x=80,y=471)
 
-    areaL = tk.Label(toplevelform,text='    ',bg='#cecece',font='sans 320 bold')
+    areaL = tk.Label(toplevelform,text='    ',bg='#cecece',font='sans 298 bold')
     areaL.pack(side=tk.RIGHT,fill=tk.Y) 
 
     areaText = tk.Label(toplevelform,text='Bill Area',bg='#cecece',font='sans 36 bold',fg='#19b0f6')
@@ -381,7 +381,7 @@ def toplevel1():
     clear_bill_area = tk.Button(toplevelform,text='Reset Menu',font='sans 20 bold',bg='#ffa0a0',command=resetM)
     clear_bill_area.place(x=623,y=480)
     
-    exitB = tk.Button(toplevelform,text='EXIT',font='sans 24 bold',bg='#e3f3b0',command=exitQuestion,fg='red')
+    exitB = tk.Button(toplevelform,text='EXIT',font='sans 22 bold',bg='#e3f3b0',command=exitQuestion,fg='red')
     exitB.place(x=1180,y=76)
      
     update_bill = tk.Button(toplevelform,text='Update Bill',font='sans 20 bold',bg='#ffa0a0',command=updateBill)
@@ -452,14 +452,14 @@ login_buton = tk.Button(form,text='Login',bg='blue',fg='white',font='sans 20 bol
 login_buton.place(x=224,y=260)
 
 register_buton = tk.Button(form,text='Register',bg='blue',fg='white',font='sans 20 bold',command=registerSystem)
-register_buton.place(x=204,y=320)
+register_buton.place(x=206,y=320)
 
 #ENTRYS
 nickname_entry = tk.Entry(form)
-nickname_entry.place(x=195,y=70)
+nickname_entry.place(x=215,y=70)
 
 password_entry = tk.Entry(form,show='*')
-password_entry.place(x=195,y=150)
+password_entry.place(x=215,y=150)
 
 #LABELS
 nickname_label = tk.Label(form,text='Nickname',font='sans 14 bold',bg='#76e698')
