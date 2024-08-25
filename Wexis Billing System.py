@@ -50,6 +50,7 @@ def toplevel1():
         if selected_value in current_values:
             current_values.remove(selected_value)
         combobox1.config(values=current_values)
+        resetM()
     
     ###############  PRICE  #################### 
 
@@ -169,6 +170,9 @@ def toplevel1():
         })
 
     def resetM():
+        customer_nameE.focus()
+        customer_nameE.delete(0, tk.END)
+        customer_billnoE.delete(0, tk.END)
         cola.delete(0, tk.END)
         cola.insert(0, 0)               
         steak.delete(0, tk.END)
@@ -398,6 +402,8 @@ def toplevel1():
         timeL.config(text=f'Time: {currentTime}')
         timeL.after(1000,timer)
     timer()
+
+    customer_nameE.focus()
 
 ################################################################# TOP LEVEL #################################################################
 
